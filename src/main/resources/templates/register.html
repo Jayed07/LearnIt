@@ -19,30 +19,39 @@
               <div class="container">
                 <label for="inputUsername"><b>Username</b></label>
                 <input  placeholder="Enter Username" name="username"
-                        th:value="*{username}"
-                        th:errorclass="is-invalid"
+                        th:field="*{username}"
+                        th:errorclass="field-error"
                         type="text"
                         id="inputUsername">
-
+                  <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="field-error-text">Username error
+                      message</small>
+<!--                  <small th:if="${userExistsError}" id="usernameUniqueError"-->
+<!--                         class="text-light form-text bg-danger rounded">Username is already occupied</small>-->
                 <label for="inputEmail"><b>Email</b></label>
                 <input placeholder="Enter Email" name="email"
                        th:value="*{email}"
-                       th:errorclass="is-invalid"
+                       th:errorclass="field-error"
                        type="text"
                        id="inputEmail">
-            
+                  <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="field-error-text">Email error
+                      message</small>
                 <label for="inputPassword"><b>Password</b></label>
                 <input placeholder="Enter Password" name="password"
-                       th:errorclass="is-invalid"
+                       th:errorclass="field-error"
                        type="password"
                        id="inputPassword">
+                  <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="field-error-text">Password error
+                      message</small>
 
                 <label for="inputConfirmPassword"><b>Confirm Password</b></label>
                 <input placeholder="Confirm Password" name="confirmPassword"
-                       th:errorclass="is-invalid"
+                       th:errorclass="field-error"
                        type="password"
                        id="inputConfirmPassword">
-                    
+                  <small th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" id="confirmPasswordError"
+                         class="field-error-text">
+                      Password length must be between 5 and 20 characters and passwords should match.
+                  </small>
                 <button type="submit">Register</button>
             
               </div>

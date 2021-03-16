@@ -133,10 +133,15 @@ form {
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
-  margin: 24px 0;
+  /*margin: 24px 0;*/
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+}
+
+label {
+    margin-top: 15px;
+
 }
 
 button {
@@ -187,7 +192,7 @@ button:hover {
   }
 
 
-  /* admin syles */
+  /* admin styles */
   .sidebar {
     margin: 0;
     padding: 0;
@@ -404,3 +409,18 @@ button:hover {
     
   }
 
+  .field-error {
+      background: #f85757;
+      border: 1px solid red;
+  }
+
+.field-error::placeholder {
+    color: white;
+
+}
+
+  .field-error-text {
+      color: red;
+      margin-top: 1px;
+      margin-bottom: 5px;
+  }
