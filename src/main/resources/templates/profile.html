@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+<header th:replace="fragments/commons :: navigation"></header>
+
+  <main class="user-profile-main">
+    <h1>My profile</h1>
+    <div class="user-info">
+      <img src="./img/default-avatar.png" alt="avatar" class="profile-picture">
+      <h2 sec:authentication="name" class="profile-username">Username</h2>
+      <p class="user-description">Some user description - Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        Quisquam ut iste perspiciatis, exercitationem, nostrum iusto eveniet sit assumenda et accusantium atque sunt
+        harum incidunt aliquam temporibus laboriosam quos eaque accusamus?</p>
+      <h3 class="interest-heading">Interests:</h3>
+      <p class="user-interests">Some user interests</p>
+      <button class="edit-profile">Edit profile</button>
+    </div>
+
+    <h1>My Articles</h1>
+    <div class="user-profile-articles-wrapper">
+      <div class="user-profile-article">
+        <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
+        <h2 class="user-profile-article-heading">Article Heading</h2>
+        <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio saepe
+          magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro laborum quas
+          ipsam. Soluta unde voluptates natus vel.</p>
+        <div class="user-profile-buttons-wrapper">
+          <button class="user-profile-view-article">View</button>
+          <button class="user-profile-edit-article">Edit</button>
+          <button class="user-profile-delete-article">Delete</button>
+        </div>
+      </div>
+        <div class="user-profile-article">
+          <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
+          <h2 class="user-profile-article-heading">Article Heading</h2>
+          <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
+            saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
+            laborum quas ipsam. Soluta unde voluptates natus vel.</p>
+          <div class="user-profile-buttons-wrapper">
+            <button class="user-profile-view-article">View</button>
+            <button class="user-profile-edit-article">Edit</button>
+            <button class="user-profile-delete-article">Delete</button>
+          </div>
+        </div>
+          <div class="user-profile-article">
+            <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
+            <h2 class="user-profile-article-heading">Article Heading</h2>
+            <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
+              saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
+              laborum quas ipsam. Soluta unde voluptates natus vel.</p>
+            <div class="user-profile-buttons-wrapper">
+              <button class="user-profile-view-article">View</button>
+              <button class="user-profile-edit-article">Edit</button>
+              <button class="user-profile-delete-article">Delete</button>
+            </div>
+          </div>
+
+          <div class="user-profile-article">
+            <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
+            <h2 class="user-profile-article-heading">Article Heading</h2>
+            <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
+              saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
+              laborum quas ipsam. Soluta unde voluptates natus vel.</p>
+            <div class="user-profile-buttons-wrapper">
+              <button class="user-profile-view-article">View</button>
+              <button class="user-profile-edit-article">Edit</button>
+              <button class="user-profile-delete-article">Delete</button>
+            </div>
+          </div>
+
+          <div class="user-profile-article">
+            <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
+            <h2 class="user-profile-article-heading">Article Heading</h2>
+            <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
+              saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
+              laborum quas ipsam. Soluta unde voluptates natus vel.</p>
+            <div class="user-profile-buttons-wrapper">
+              <button class="user-profile-view-article">View</button>
+              <button class="user-profile-edit-article">Edit</button>
+              <button class="user-profile-delete-article">Delete</button>
+            </div>
+          </div>
+
+          <div class="user-profile-article">
+            <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
+            <h2 class="user-profile-article-heading">Article Heading</h2>
+            <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
+              saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
+              laborum quas ipsam. Soluta unde voluptates natus vel.</p>
+            <div class="user-profile-buttons-wrapper">
+              <button class="user-profile-view-article">View</button>
+              <button class="user-profile-edit-article">Edit</button>
+              <button class="user-profile-delete-article">Delete</button>
+            </div>
+          </div>
+
+          
+        </div>
+       
+
+
+  </main>
+
+<footer th:replace="fragments/commons :: footer"></footer>
+</body>
+
+</html>
