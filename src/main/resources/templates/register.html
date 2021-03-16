@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+
+<header th:replace="fragments/commons :: navigation"></header>
+
+
+<main class="index-main">
+      <div class="section-wrapper">
+        <div class="main-content main-content-register">
+            <h2 class="login-heading">Register Form</h2>
+            <form th:action="@{/users/register}"
+                  th:object="${registrationBindingModel}"
+                  method="POST">
+              <div class="container">
+                <label for="inputUsername"><b>Username</b></label>
+                <input  placeholder="Enter Username" name="username"
+                        th:value="*{username}"
+                        th:errorclass="is-invalid"
+                        type="text"
+                        id="inputUsername">
+
+                <label for="inputEmail"><b>Email</b></label>
+                <input placeholder="Enter Email" name="email"
+                       th:value="*{email}"
+                       th:errorclass="is-invalid"
+                       type="text"
+                       id="inputEmail">
+            
+                <label for="inputPassword"><b>Password</b></label>
+                <input placeholder="Enter Password" name="password"
+                       th:errorclass="is-invalid"
+                       type="password"
+                       id="inputPassword">
+
+                <label for="inputConfirmPassword"><b>Confirm Password</b></label>
+                <input placeholder="Confirm Password" name="confirmPassword"
+                       th:errorclass="is-invalid"
+                       type="password"
+                       id="inputConfirmPassword">
+                    
+                <button type="submit">Register</button>
+            
+              </div>
+              
+              <div class="container" style="background-color:#f1f1f1">
+                
+                <span class="sign">Already have an account? <a href="/users/login">Log in!</a></span>
+              </div>
+            </form>
+        </div>
+      </div>
+    </main>
+
+<footer th:replace="fragments/commons :: footer"></footer>
+  </body>
+</html>

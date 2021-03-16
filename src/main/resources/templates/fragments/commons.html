@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:fragment="head">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/responsive.css">
+    <title>LearnIt</title>
+</head>
+
+<body>
+
+<header th:fragment="navigation">
+    <div class="nav-container">
+        <nav class="section-wrapper">
+            <a class="logo-heading" href="/"><h1 >LearnIt</h1></a>
+            <ul>
+                <li><a sec:authorize="!isAuthenticated()"
+                       th:href="@{/users/login}">Login</a></li>
+                <li><a sec:authorize="!isAuthenticated()"
+                       th:href="@{/users/register}">
+                    Register</a></li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin">Admin Panel</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="./login.html">Ask the admin</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="./login.html">Add Article</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="./login.html">Categories</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="./login.html">Forum</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="./login.html">My Profile</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="#" th:href="@{/logout}">Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<header th:fragment="admin-navigation">
+    <div class="nav-container">
+        <nav class="section-wrapper">
+            <a class="logo-heading" href="/"><h1 >LearnIt</h1></a>
+            <div class="user-info-wrapper">
+                <img src="./img/index-bgn.jpg" alt="" class="avatar">
+                <p sec:authentication="name" class="admin-panel-username">Some username</p>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="sidebar" th:fragment="admin-side-navigation">
+    <a class="active" href="/admin">Dashboard</a>
+    <a href="/admin-article">Articles Approval</a>
+    <a href="/admin-contact">User Questions</a>
+    <a href="/admin-user">Users Management</a>
+</div>
+
+<footer th:fragment="footer">
+    <p class="section-wrapper">All rights reserved&copy; | jayed.ws 2021</p>
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+
+<header th:replace="fragments/commons :: navigation"></header>
+
+    <main class="index-main">
+      <div class="section-wrapper">
+        <div class="main-content main-content-login">
+            <h2 class="login-heading">Login Form</h2>
+            <form th:action="@{/users/login}"
+                  method="POST">
+              <div class="container">
+                <label for="inputUsername"><b>Username</b></label>
+                <input placeholder="Enter Username" type="text"
+                       name="username"
+                       th:value="${username}"
+                       id="inputUsername">
+            
+                <label for="inputPassword"><b>Password</b></label>
+                <input placeholder="Enter Password" type="password"
+                       name="password"
+                       id="inputPassword">
+                    
+                <button type="submit">Login</button>
+
+              </div>
+              
+              <div class="container" style="background-color:#f1f1f1">
+                
+                <span class="sign">Don't have an account? <a href="/users/register">Sign up!</a></span>
+              </div>
+            </form>
+        </div>
+      </div>
+    </main>
+<footer th:replace="fragments/commons :: footer"></footer>
+  </body>
+</html>
