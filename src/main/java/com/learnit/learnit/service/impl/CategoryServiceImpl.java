@@ -6,6 +6,9 @@ import com.learnit.learnit.repository.CategoryRepository;
 import com.learnit.learnit.service.CategoryService;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -31,5 +34,19 @@ public class CategoryServiceImpl implements CategoryService {
 
         }
 
+    }
+
+    @Override
+    public Map<String, String> getAllCategories() {
+
+        Map<String, String> allCategories = new LinkedHashMap<>();
+
+        for (CategoryName value : CategoryName.values()) {
+            CategoryEntity categoryEntity = categoryRepository.findByName(value);
+            allCategories.put(categoryEntity.getName().toString(), categoryEntity.getDescription());
+            ;
+        }
+
+        return allCategories;
     }
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+<header th:replace="fragments/commons :: navigation"></header>
+
+
+<main class="categories">
+      <h1>Categories</h1>
+    <div class="categories-view-wrapper">
+        <div th:each="entry : ${categoriesMap}" class="flip-box">
+            <div class="flip-box-inner">
+              <div class="flip-box-front">
+                <h2 th:text="${entry.key}">Category name</h2>
+              </div>
+              <div class="flip-box-back">
+                <h2 th:text="${entry.value}">Category description</h2>
+                <button>View</button>
+              </div>
+            </div>
+          </div>
+
+
+          
+    </div>
+
+  </main>
+
+<footer th:replace="fragments/commons :: footer"></footer>
+</body>
+
+</html>
