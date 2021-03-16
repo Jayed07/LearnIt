@@ -292,7 +292,7 @@ button:hover {
 
   .user-profile-articles-wrapper {
     display: flex;
-    margin: 50px auto;
+    margin: 100px auto;
     margin-top: 0;
     max-width: 80% ;
     justify-content: center;

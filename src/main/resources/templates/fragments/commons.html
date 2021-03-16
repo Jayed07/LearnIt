@@ -29,7 +29,7 @@
                 <li sec:authorize="isAuthenticated()"><a href="./login.html">Add Article</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="./login.html">Categories</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="./login.html">Forum</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="./login.html">My Profile</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="/my-profile">My Profile</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="#" th:href="@{/logout}">Log Out</a></li>
             </ul>
         </nav>
