@@ -1,12 +1,17 @@
 package com.learnit.learnit.service.impl;
 
 import com.learnit.learnit.model.entity.ArticleEntity;
+import com.learnit.learnit.model.entity.enums.CategoryName;
 import com.learnit.learnit.model.service.ArticleAddServiceModel;
 import com.learnit.learnit.repository.ArticleRepository;
 import com.learnit.learnit.service.ArticleService;
 import com.learnit.learnit.service.CategoryService;
+import com.learnit.learnit.view.ArticleViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -28,5 +33,12 @@ public class ArticleServiceImpl implements ArticleService {
         articleEntity.setCategory(categoryService.findByName(articleAddServiceModel.getCategoryName()));
 
         articleRepository.save(articleEntity);
+    }
+
+    @Override
+    public List<ArticleViewModel> findArticlesByCategoryName(CategoryName categoryName) {
+        return articleRepository.findAllByCategory_Name(categoryName)
+                .stream().map(articleEntity -> modelMapper.map(articleEntity, ArticleViewModel.class))
+                .collect(Collectors.toList());
     }
 }

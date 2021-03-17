@@ -36,7 +36,7 @@ private final PasswordEncoder passwordEncoder;
           // allow access to index, user login and registration to anyone
           antMatchers("/", "/users/login", "/users/register").permitAll().
             antMatchers("/admin", "/admin-article", "/admin-contact", "/admin-user").hasRole("ADMIN").
-            antMatchers("/ask-the-admin", "/add-article").hasRole("USER").
+            antMatchers("/ask-the-admin", "/add-article", "/categories", "/my-profile").hasRole("USER").
           // protect all other pages
 //          antMatchers("/**").authenticated().
         and().

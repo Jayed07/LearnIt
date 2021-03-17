@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+<header th:replace="fragments/commons :: navigation"></header>
+
+  <main class="user-profile-main">
+<h1>Articles in category</h1>
+    <div class="user-profile-articles-wrapper">
+      <div th:each="a : ${animals}" th:object="${a}" class="user-profile-article">
+        <img th:src="*{imageUrl}" src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
+        <h2 th:text="*{name}" class="user-profile-article-heading">Article Heading</h2>
+        <p th:text="*{content}" class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio saepe
+          magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro laborum quas
+          ipsam. Soluta unde voluptates natus vel.</p>
+        <div class="user-profile-buttons-wrapper">
+          <button class="user-profile-view-article">View</button>
+          <button class="user-profile-edit-article">Edit</button>
+          <button class="user-profile-delete-article">Delete</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+<footer th:replace="fragments/commons :: footer"></footer>
+  </body>
+  
+  </html>

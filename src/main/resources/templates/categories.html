@@ -10,23 +10,22 @@
 
 <main class="categories">
       <h1>Categories</h1>
+
     <div class="categories-view-wrapper">
-        <div th:each="entry : ${categoriesMap}" class="flip-box">
+        <form th:each="entry : ${categoriesMap}" th:action="@{/categories/{category}(category = ${entry.key.toLowerCase()})}">
+        <div  class="flip-box">
             <div class="flip-box-inner">
               <div class="flip-box-front">
                 <h2 th:text="${entry.key}">Category name</h2>
               </div>
               <div class="flip-box-back">
                 <h2 th:text="${entry.value}">Category description</h2>
-                <button>View</button>
+                <button type="submit">View</button>
               </div>
             </div>
           </div>
-
-
-          
+        </form>
     </div>
-
   </main>
 
 <footer th:replace="fragments/commons :: footer"></footer>
