@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+<header th:replace="fragments/commons :: navigation"></header>
+
+    <main class="index-main">
+        <div class="section-wrapper">
+          <div class="main-content main-content-register">
+              <h2 class="login-heading">Add Article</h2>
+              <form action="/add-article" th:object="${articleAddBindingModel}" method="POST">
+                <div class="container">
+                  <label for="name"><b>Article name</b></label>
+                  <input th:field="*{name}" th:errorclass="field-error" type="text" placeholder="Enter article name" id="name" name="name">
+                    <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="field-error-text"> Name error</small>
+                  <label for="categoryName"><b>Select category</b></label>
+                  <select th:field="*{categoryName}" th:errorclass="field-error" id="categoryName" name="categoryName">
+                    <option th:each="c : ${T(com.learnit.learnit.model.entity.enums.CategoryName).values()}"
+                            th:text="${c}" th:value="${c}">Category Name</option>
+
+                  </select>
+              
+                  <label for="content"><b>Article content</b></label>
+                  <input th:field="*{content}" th:errorclass="field-error" type="text" placeholder="Enter Content" id="content" name="content">
+                    <small th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="field-error-text"> Content error</small>
+                  <label for="imageUrl"><b>Image URL</b></label>
+                  <input th:field="*{imageUrl}" th:errorclass="field-error" type="text" placeholder="Enter image URL" id="imageUrl" name="imageUrl">
+                    <small th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}" class="field-error-text"> Content error</small>
+                  <button type="submit">Add Article</button>
+              
+                </div>
+
+              </form>
+          </div>
+        </div>
+      </main>
+
+    <footer th:replace="fragments/commons :: footer"></footer>
+  </body>
+</html>

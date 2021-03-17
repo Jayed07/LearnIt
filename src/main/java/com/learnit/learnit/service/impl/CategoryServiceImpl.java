@@ -44,9 +44,15 @@ public class CategoryServiceImpl implements CategoryService {
         for (CategoryName value : CategoryName.values()) {
             CategoryEntity categoryEntity = categoryRepository.findByName(value);
             allCategories.put(categoryEntity.getName().toString(), categoryEntity.getDescription());
-            ;
+
         }
 
         return allCategories;
+    }
+
+    @Override
+    public CategoryEntity findByName(CategoryName categoryName) {
+        return categoryRepository.findByName(categoryName);
+
     }
 }

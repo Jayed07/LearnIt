@@ -26,7 +26,7 @@
                     Register</a></li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/admin">Admin Panel</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="./login.html">Ask the admin</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="./login.html">Add Article</a></li>
+                <li sec:authorize="isAuthenticated()"><a href="/add-article">Add Article</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="/categories">Categories</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="./login.html">Forum</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="/my-profile">My Profile</a></li>

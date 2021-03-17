@@ -24,17 +24,19 @@ private final PasswordEncoder passwordEncoder;
     this.passwordEncoder = passwordEncoder;
   }
 
-  @Override
+
+    @Override
   protected void configure(HttpSecurity http) throws Exception {
 
     http.
+        csrf().disable().
         authorizeRequests().
           // allow access to static resources to anyone
           requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
           // allow access to index, user login and registration to anyone
           antMatchers("/", "/users/login", "/users/register").permitAll().
             antMatchers("/admin", "/admin-article", "/admin-contact", "/admin-user").hasRole("ADMIN").
-//            antMatchers("/ask-the-admin").hasRole("USER").
+            antMatchers("/ask-the-admin", "/add-article").hasRole("USER").
           // protect all other pages
 //          antMatchers("/**").authenticated().
         and().
