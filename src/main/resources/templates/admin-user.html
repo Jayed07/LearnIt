@@ -8,6 +8,17 @@
 
 <main>
     <div th:replace="fragments/commons :: admin-side-navigation"></div>
+
+    <div class="some-content">
+
+
+        <div th:each="user : ${usersMap}">
+        <h1 th:text="${user.getKey()}"></h1>
+            <span th:each="role : ${user.getValue()}">
+                <p th:text="${role.getRole()}"></p>
+            </span>
+        </div>
+    </div>
 </main>
 </body>
 <footer th:replace="fragments/commons :: footer"></footer>

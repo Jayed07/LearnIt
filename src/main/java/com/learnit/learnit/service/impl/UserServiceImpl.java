@@ -7,6 +7,7 @@ import com.learnit.learnit.model.service.UserRegistrationServiceModel;
 import com.learnit.learnit.repository.UserRoleRepository;
 import com.learnit.learnit.repository.UserRepository;
 import com.learnit.learnit.service.UserService;
+import com.learnit.learnit.view.UserManagementViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,7 +16,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -80,4 +85,16 @@ public class UserServiceImpl implements UserService {
     public boolean userNameExists(String username) {
         return userRepository.findByUsername(username).isPresent();
     }
+
+    @Override
+    public Map<String, List<UserRoleEntity>> getAllUsersUsernamesAndRoles() {
+
+        return userRepository.findAll()
+                .stream()
+                .map(userEntity -> modelMapper.map(userEntity, UserManagementViewModel.class))
+                .collect(Collectors
+                        .toMap(UserManagementViewModel::getUsername,
+                                UserManagementViewModel::getUserRoleEntity));
+    }
+
 }
