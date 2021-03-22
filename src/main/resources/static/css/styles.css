@@ -424,3 +424,66 @@ button:hover {
       margin-top: 1px;
       margin-bottom: 5px;
   }
+
+/* Article Details styles */
+.article-details-section {
+    max-width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.article-details-heading {
+    font-size: 24px;
+}
+
+.article-details-section-image {
+    max-width: 800px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.article-details-content {
+    max-width: 53%;
+    margin: 10px auto;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+}
+
+.comment-author-img {
+    max-width: 70px;
+    margin: 0 auto;
+}
+
+.comment-author-info {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.comments-section {
+    border: 1px solid #007acc;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+textarea .input-comment-field {
+    margin: 0px;
+    width: 1217px;
+    height: 76px;
+}
+
+.comment-input .comment-submit-button {
+    max-width: 160px;
+    border-radius: 20px;
+    margin: 15px;
+}
+
+.comment-input {
+    display: flex;
+}

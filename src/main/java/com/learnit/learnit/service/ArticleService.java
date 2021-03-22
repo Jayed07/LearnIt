@@ -11,4 +11,6 @@ public interface ArticleService {
     void add(ArticleAddServiceModel articleAddServiceModel);
 
     List<ArticleViewModel> findArticlesByCategoryName(CategoryName categoryName);
+
+    ArticleViewModel findById(Long id);
 }

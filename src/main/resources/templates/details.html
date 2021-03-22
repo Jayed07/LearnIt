@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+<header th:replace="fragments/commons :: navigation"></header>
+
+    <div th:object="${article}" class="article-details-section">
+        <h1 th:text="*{name}" class="article-details-heading">Some heading</h1>
+        <img th:src="*{imageUrl}" src="./img/index-bgn.jpg" alt="image" class="article-details-section-image">
+        <p th:text="*{content}" class="article-details-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga maxime voluptatem tempore similique quis ducimus minus sit commodi ipsa ex voluptate libero repudiandae, est odit voluptatum laboriosam facere dolores consectetur.</p>
+
+        <div class="comments-section">
+            <div class="comment">
+                <div class="comment-author-info">
+                <img src="./img/default-avatar.png" alt="avatar" class="comment-author-img">
+                <span sec:authentication="name" class="comment-author-name">Some username</span>
+            </div>
+            <div class="comment-field">
+                <form action="/comments/add" method="POST" class="comment-input">
+                    <textarea name="text"
+                    class="input-comment-field" style=" margin: 0px;
+                    width: 1217px;
+                    height: 76px;"></textarea>
+                    <button class="comment-submit-button"type="submit">Post comment</button>
+                </form>
+            </div>
+            </div>
+        </div>
+
+        <div class="all-comments">
+            <h2>All comments</h2>
+            <div class="comments-section" style="background:#007acc">
+                <div class="comment">
+                    <div class="comment-author-info" style="background:white; border-radius: 5px;">
+                    <img src="./img/default-avatar.png" alt="avatar" class="comment-author-img">
+                    <span  class="comment-author-name">Some username</span>
+                </div>
+                <div class="comment-content" style="background:white; padding: 20px; border-radius: 5px;">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor veniam architecto, reiciendis itaque exercitationem error ex quas, doloremque omnis beatae inventore sequi quis nostrum pariatur maxime adipisci hic maiores? Dolor.</p>
+                </div>
+                </div>
+        </div>
+    </div>
+    </div>
+
+
+        <footer th:replace="fragments/commons :: footer"></footer>
+
+</body>
+</html>

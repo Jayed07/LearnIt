@@ -41,4 +41,15 @@ public class ArticleServiceImpl implements ArticleService {
                 .stream().map(articleEntity -> modelMapper.map(articleEntity, ArticleViewModel.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public ArticleViewModel findById(Long id) {
+
+        return articleRepository.findById(id)
+                .map(articleEntity -> {
+                    ArticleViewModel articleViewModel = modelMapper
+                            .map(articleEntity, ArticleViewModel.class);
+                    return articleViewModel;
+                }).orElseThrow(IllegalArgumentException::new);
+    }
 }

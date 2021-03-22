@@ -1,13 +1,16 @@
 package com.learnit.learnit.web;
 
 import com.learnit.learnit.model.binding.ArticleAddBindingModel;
+import com.learnit.learnit.model.entity.enums.CategoryName;
 import com.learnit.learnit.model.service.ArticleAddServiceModel;
 import com.learnit.learnit.service.ArticleService;
+import com.learnit.learnit.view.ArticleViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -50,5 +53,16 @@ public class ArticleController {
                 .add(modelMapper.map(articleAddBindingModel, ArticleAddServiceModel.class));
 
         return "redirect:/";
+    }
+
+
+    @GetMapping("/details/{id}")
+    public String articleDetails(@PathVariable Long id, Model model) {
+
+        ArticleViewModel articleViewModel = articleService.findById(id);
+
+        model.addAttribute("article", articleViewModel);
+
+        return "details";
     }
 }
