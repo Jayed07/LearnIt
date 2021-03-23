@@ -1,10 +1,8 @@
 package com.learnit.learnit.service.impl;
 
 import com.learnit.learnit.model.entity.ArticleEntity;
-import com.learnit.learnit.model.entity.CommentEntity;
 import com.learnit.learnit.model.entity.enums.CategoryName;
 import com.learnit.learnit.model.service.ArticleAddServiceModel;
-import com.learnit.learnit.model.service.CommentAddServiceModel;
 import com.learnit.learnit.repository.ArticleRepository;
 import com.learnit.learnit.service.ArticleService;
 import com.learnit.learnit.service.CategoryService;
