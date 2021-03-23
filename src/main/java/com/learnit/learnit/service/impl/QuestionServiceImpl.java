@@ -5,6 +5,8 @@ import com.learnit.learnit.model.entity.QuestionEntity;
 import com.learnit.learnit.model.service.QuestionAddServiceModel;
 import com.learnit.learnit.repository.QuestionRepository;
 import com.learnit.learnit.service.QuestionService;
+import com.learnit.learnit.view.ArticleViewModel;
+import com.learnit.learnit.view.QuestionViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -29,5 +31,15 @@ public class QuestionServiceImpl implements QuestionService {
         questionEntity.setAuthor(currentUserName);
 
         questionRepository.save(questionEntity);
+    }
+
+    @Override
+    public QuestionViewModel findById(Long id) {
+        return questionRepository.findById(id)
+                .map(questionEntity -> {
+                    QuestionViewModel questionViewModel = modelMapper
+                            .map(questionEntity, QuestionViewModel.class);
+                    return questionViewModel;
+                }).orElseThrow(IllegalArgumentException::new);
     }
 }

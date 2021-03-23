@@ -495,3 +495,69 @@ textarea .input-comment-field {
 .question-user {
     border-right: 1px solid #007acc;
 }
+
+/* Admin-users-questions styles */
+
+.user-questions-admin-wrapper {
+    max-width: 70%;
+    width: 100%;
+    margin: 10px auto;
+    text-align: center
+}
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+tr:nth-child(even) {
+    background-color: #eee;
+}
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+th {
+    background-color: #007acc;
+    color: white;
+}
+
+.btn-admin-answer {
+    text-align: center;
+    background: #007acc;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Admin-answer styles */
+.admin-answer-content{
+    margin: 10px auto;
+    max-width: 80%;
+    text-align: center;
+    background: rgba(132, 193, 235, 1) 25%;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.answer-section form {
+    border: none;
+    margin: 10px auto;
+}
+
+.answer-section {
+    display: flex;
+    align-items: center;
+}
+
+.user-question-admin {
+    max-width: 70%;
+    margin: 0 auto;
+}

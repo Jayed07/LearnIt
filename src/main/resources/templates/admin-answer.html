@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons :: head"></head>
+<body>
+<header th:replace="fragments/commons :: admin-navigation"></header>
+<main th:object="${question}" class="admin-answer-content">
+    <h1 th:text="*{author}" class="admin-answer-username">Username</h1>
+    <h3 th:text="*{content}" class="user-question-admin">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati illum accusamus officia voluptates assumenda. Deleniti molestiae, eius illo nihil animi pariatur quasi dolorum qui eum sunt dignissimos corporis ipsam consequatur?</h3>
+    <div class="answer-section">
+        <form th:action="@{/admin-answer/{id} (id = ${question.id})}" th:object="${answerAddBindingModel}" method="POST">
+            <textarea th:field="*{content}" name="text" class="input-comment-field" style="margin: 0px; width: 965px; height: 252px;"></textarea>
+            <button  class="comment-submit-button" type="submit" style="max-width: 160px;
+                    border-radius: 20px;
+                    margin: 15px;">Answer</button>
+<!--TODO: set answer id to question entity-->
+
+
+        </form>
+    </div>
+</main>
+</body>
+<footer th:replace="fragments/commons :: footer"></footer>
+</html>

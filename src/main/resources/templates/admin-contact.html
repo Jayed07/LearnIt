@@ -7,7 +7,21 @@
 <header th:replace="fragments/commons :: admin-navigation"></header>
 
 <main>
-
+    <div class="user-questions-admin-wrapper">
+        <h1 class="user-questions-admin-heading">Users Questions</h1>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Question</th>
+                <th></th>
+            </tr>
+            <tr th:each="q : ${questions}" th:object="${q}">
+                <td th:text="*{author}">Some username</td>
+                <td th:text="*{content}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem deleniti ab odit, magnam maxime perspiciatis repellat illo laudantium quo quae corrupti recusandae, fugiat similique reprehenderit laborum esse rem unde! Magnam!</td>
+                <td><a th:href="@{/admin-answer/{id}(id = *{id})}" class="btn-admin-answer" href="">Answer</a></td>
+            </tr>
+        </table>
+    </div>
 </main>
 </body>
 <footer th:replace="fragments/commons :: footer"></footer>
