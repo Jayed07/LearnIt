@@ -14,7 +14,6 @@ public interface ArticleService {
 
     ArticleViewModel findById(Long id);
 
-    void addComment(CommentAddServiceModel commentAddServiceModel);
 
     void deleteById(Long id);
 }

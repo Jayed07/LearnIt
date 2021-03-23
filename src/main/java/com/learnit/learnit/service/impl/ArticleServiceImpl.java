@@ -57,12 +57,7 @@ public class ArticleServiceImpl implements ArticleService {
                 }).orElseThrow(IllegalArgumentException::new);
     }
 
-    @Override
-    public void addComment(CommentAddServiceModel commentAddServiceModel) {
-        CommentEntity commentEntity = modelMapper.map(commentAddServiceModel, CommentEntity.class);
 
-        // TODO
-    }
 
     @Override
     public void deleteById(Long id) {
