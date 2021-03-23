@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/commons :: head"></head>
+
+<body>
+<header th:replace="fragments/commons :: navigation"></header>
+
+<main class="ask-the-admin-content">
+  <h1 class="ask-heading">Ask the admin</h1>
+  <div class="question-section">
+    <form action="/ask-the-admin" th:object="${questionAddBindingModel}" method="POST">
+      <textarea th:field="*{content}" name="text" class="input-comment-field" style="margin: 0px; width: 965px; height: 252px;"></textarea>
+      <button class="comment-submit-button" type="submit" style="max-width: 160px;
+                    border-radius: 20px;
+                    margin: 15px;">Post comment</button>
+    </form>
+  </div>
+</main>
+<footer th:replace="fragments/commons :: footer"></footer>
+</body>
+
+</html>

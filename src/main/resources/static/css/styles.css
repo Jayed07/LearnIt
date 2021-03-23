@@ -266,6 +266,11 @@ button:hover {
     text-align: center;
   }
 
+  .user-profile-main form .back-to-my-profile {
+      max-width: 200px;
+
+  }
+
   .user-info {
     max-width: 25%;
     text-align: center;
@@ -326,6 +331,9 @@ button:hover {
     margin: 7px;
   }
 
+.user-profile-buttons-wrapper form {
+    margin: 0 auto;
+}
   .user-profile-view-article, .user-profile-edit-article, .user-profile-delete-article {
     border-radius: 10px;
     padding: 10px 15px;
@@ -486,4 +494,46 @@ textarea .input-comment-field {
 
 .comment-input {
     display: flex;
+}
+
+/* Ask-the-admin styles */
+.question-section {
+    display: flex;
+    align-items: center;
+}
+
+.ask-the-admin-content{
+    margin: 50px auto;
+    max-width: 80%;
+    text-align: center;
+    background: rgb(0,122,204);
+    background: linear-gradient(90deg, rgba(0,122,204,1) 0%, rgba(132,193,235,1) 25%, rgba(195,231,255,1) 100%);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.question-section form {
+    border: none;
+    margin: 10px auto;
+}
+
+/* User-profile-question styles */
+.question-user-profile-wrapper {
+    max-width: 70%;
+    width: 100%;
+    border: 1px solid #007acc;
+    display: flex;
+    margin: 10px auto;
+    margin-bottom: 150px;
+}
+
+.question-user, .answer-user {
+    padding: 20px;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.question-user {
+    border-right: 1px solid #007acc;
 }

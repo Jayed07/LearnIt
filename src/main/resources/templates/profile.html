@@ -20,86 +20,35 @@
       <button class="edit-profile">Edit profile</button>
     </div>
 
-    <h1>My Articles</h1>
+    <h1 th:if="${!articles.isEmpty()}">My Articles</h1>
     <div class="user-profile-articles-wrapper">
-      <div class="user-profile-article">
-        <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
-        <h2 class="user-profile-article-heading">Article Heading</h2>
-        <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio saepe
+      <div th:each="a : ${articles}"  th:object="${a}" class="user-profile-article">
+        <img th:src="*{imageUrl}" src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
+        <h2 th:text="*{name}" class="user-profile-article-heading">Article Heading</h2>
+        <p th:text="*{content}" class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio saepe
           magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro laborum quas
           ipsam. Soluta unde voluptates natus vel.</p>
         <div class="user-profile-buttons-wrapper">
-          <button class="user-profile-view-article">View</button>
-          <button class="user-profile-edit-article">Edit</button>
-          <button class="user-profile-delete-article">Delete</button>
+          <form  th:action="@{/details/{id}(id = *{id})}">
+            <button type="submit" class="user-profile-view-article">View</button></form>
+          <form> <button class="user-profile-edit-article">Edit</button></form>
+          <form th:action="@{/delete/{id}(id = *{id})}"> <button class="user-profile-delete-article">Delete</button>
+          </form>
         </div>
       </div>
-        <div class="user-profile-article">
-          <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
-          <h2 class="user-profile-article-heading">Article Heading</h2>
-          <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
-            saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
-            laborum quas ipsam. Soluta unde voluptates natus vel.</p>
-          <div class="user-profile-buttons-wrapper">
-            <button class="user-profile-view-article">View</button>
-            <button class="user-profile-edit-article">Edit</button>
-            <button class="user-profile-delete-article">Delete</button>
-          </div>
-        </div>
-          <div class="user-profile-article">
-            <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
-            <h2 class="user-profile-article-heading">Article Heading</h2>
-            <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
-              saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
-              laborum quas ipsam. Soluta unde voluptates natus vel.</p>
-            <div class="user-profile-buttons-wrapper">
-              <button class="user-profile-view-article">View</button>
-              <button class="user-profile-edit-article">Edit</button>
-              <button class="user-profile-delete-article">Delete</button>
-            </div>
-          </div>
+    </div>
 
-          <div class="user-profile-article">
-            <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
-            <h2 class="user-profile-article-heading">Article Heading</h2>
-            <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
-              saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
-              laborum quas ipsam. Soluta unde voluptates natus vel.</p>
-            <div class="user-profile-buttons-wrapper">
-              <button class="user-profile-view-article">View</button>
-              <button class="user-profile-edit-article">Edit</button>
-              <button class="user-profile-delete-article">Delete</button>
-            </div>
-          </div>
-
-          <div class="user-profile-article">
-            <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
-            <h2 class="user-profile-article-heading">Article Heading</h2>
-            <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
-              saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
-              laborum quas ipsam. Soluta unde voluptates natus vel.</p>
-            <div class="user-profile-buttons-wrapper">
-              <button class="user-profile-view-article">View</button>
-              <button class="user-profile-edit-article">Edit</button>
-              <button class="user-profile-delete-article">Delete</button>
-            </div>
-          </div>
-
-          <div class="user-profile-article">
-            <img src="img/index-bgn.jpg" alt="article-image" class="user-profile-article-image">
-            <h2 class="user-profile-article-heading">Article Heading</h2>
-            <p class="user-profile-article-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam odio
-              saepe magnam necessitatibus, minus voluptates aliquid ducimus dolores quasi repudiandae? Voluptas porro
-              laborum quas ipsam. Soluta unde voluptates natus vel.</p>
-            <div class="user-profile-buttons-wrapper">
-              <button class="user-profile-view-article">View</button>
-              <button class="user-profile-edit-article">Edit</button>
-              <button class="user-profile-delete-article">Delete</button>
-            </div>
-          </div>
-
-          
-        </div>
+    <h1 th:if="${!questions.isEmpty()}">My Questions</h1>
+    <div th:each="q : ${questions}"  th:object="${q}" class="question-user-profile-wrapper">
+      <div class="question-user">
+        <h1 class="question-user-heading">Q</h1>
+        <span th:text="*{content}" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste dignissimos non possimus nobis, animi saepe aspernatur nemo atque totam eum consequatur exercitationem aperiam beatae odio eveniet quas commodi delectus asperiores!</span>
+      </div>
+      <div class="answer-user">
+        <h1 class="answer-user-heading">A</h1>
+        <span th:text="*{answerEntity?.content } ?: 'Not answered yet..'" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste dignissimos non possimus nobis, animi saepe aspernatur nemo atque totam eum consequatur exercitationem aperiam beatae odio eveniet quas commodi delectus asperiores!</span>
+      </div>
+    </div>
        
 
 

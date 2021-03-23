@@ -13,7 +13,7 @@
         <img th:src="*{imageUrl}" src="./img/index-bgn.jpg" alt="image" class="article-details-section-image">
         <p th:text="*{content}" class="article-details-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga maxime voluptatem tempore similique quis ducimus minus sit commodi ipsa ex voluptate libero repudiandae, est odit voluptatum laboriosam facere dolores consectetur.</p>
 
-        <div class="comments-section">
+        <div th:object="${CommentsAddBindingModel}" class="comments-section">
             <div class="comment">
                 <div class="comment-author-info">
                 <img src="./img/default-avatar.png" alt="avatar" class="comment-author-img">

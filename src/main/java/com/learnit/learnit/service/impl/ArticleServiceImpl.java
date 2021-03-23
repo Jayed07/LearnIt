@@ -1,13 +1,16 @@
 package com.learnit.learnit.service.impl;
 
 import com.learnit.learnit.model.entity.ArticleEntity;
+import com.learnit.learnit.model.entity.CommentEntity;
 import com.learnit.learnit.model.entity.enums.CategoryName;
 import com.learnit.learnit.model.service.ArticleAddServiceModel;
+import com.learnit.learnit.model.service.CommentAddServiceModel;
 import com.learnit.learnit.repository.ArticleRepository;
 import com.learnit.learnit.service.ArticleService;
 import com.learnit.learnit.service.CategoryService;
 import com.learnit.learnit.view.ArticleViewModel;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +23,7 @@ public class ArticleServiceImpl implements ArticleService {
     private final ModelMapper modelMapper;
     private final CategoryService categoryService;
 
+
     public ArticleServiceImpl(ArticleRepository articleRepository, ModelMapper modelMapper, CategoryService categoryService) {
         this.articleRepository = articleRepository;
         this.modelMapper = modelMapper;
@@ -31,6 +35,8 @@ public class ArticleServiceImpl implements ArticleService {
         ArticleEntity articleEntity = modelMapper.map(articleAddServiceModel, ArticleEntity.class);
 
         articleEntity.setCategory(categoryService.findByName(articleAddServiceModel.getCategoryName()));
+        String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
+        articleEntity.setAuthor(currentUserName);
 
         articleRepository.save(articleEntity);
     }
@@ -51,5 +57,17 @@ public class ArticleServiceImpl implements ArticleService {
                             .map(articleEntity, ArticleViewModel.class);
                     return articleViewModel;
                 }).orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public void addComment(CommentAddServiceModel commentAddServiceModel) {
+        CommentEntity commentEntity = modelMapper.map(commentAddServiceModel, CommentEntity.class);
+
+        // TODO
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        articleRepository.deleteById(id);
     }
 }

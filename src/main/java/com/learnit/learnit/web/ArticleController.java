@@ -1,11 +1,11 @@
 package com.learnit.learnit.web;
 
 import com.learnit.learnit.model.binding.ArticleAddBindingModel;
-import com.learnit.learnit.model.entity.enums.CategoryName;
 import com.learnit.learnit.model.service.ArticleAddServiceModel;
 import com.learnit.learnit.service.ArticleService;
 import com.learnit.learnit.view.ArticleViewModel;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -21,10 +22,11 @@ public class ArticleController {
 
     private final ArticleService articleService;
     private final ModelMapper modelMapper;
-
-    public ArticleController(ArticleService articleService, ModelMapper modelMapper) {
+    private final HttpSession session;
+    public ArticleController(ArticleService articleService, ModelMapper modelMapper, HttpSession session) {
         this.articleService = articleService;
         this.modelMapper = modelMapper;
+        this.session = session;
     }
 
     @GetMapping("/add-article")
@@ -64,5 +66,18 @@ public class ArticleController {
         model.addAttribute("article", articleViewModel);
 
         return "details";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String articleDelete (@PathVariable Long id) {
+
+        articleService.deleteById(id);
+
+        return "redirect:del-confirm";
+    }
+
+    @GetMapping("/delete/del-confirm")
+    public String articleDeleteConfirm (){
+        return "del-confirm";
     }
 }

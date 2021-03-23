@@ -12,6 +12,7 @@ public class ArticleEntity extends BaseEntity {
     private String imageUrl;
     private CategoryEntity categoryEntity;
     private List<CommentEntity> commentEntities;
+    private String author;
     //TODO: add Author field == session user
 
     public ArticleEntity() {
@@ -60,6 +61,14 @@ public class ArticleEntity extends BaseEntity {
 
     public void setComments(List<CommentEntity> commentEntities) {
         this.commentEntities = commentEntities;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
 

@@ -12,5 +12,6 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, Long> {
 
     List<ArticleEntity> findAllByCategory_Name(CategoryName categoryName);
 
+    List<ArticleEntity> findAllByAuthor(String author);
 
 }
