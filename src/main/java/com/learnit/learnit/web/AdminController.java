@@ -29,8 +29,5 @@ public class AdminController {
     public String adminContact() {
         return "admin-contact";
     }
-    @GetMapping("/admin-article")
-    public String adminArticle() {
-        return "admin-article";
-    }
+
 }
