@@ -7,18 +7,23 @@
 <header th:replace="fragments/commons :: admin-navigation"></header>
 
 <main>
-
-
-    <div class="some-content">
-
-
-        <div th:each="user : ${usersMap}">
-        <h1 th:text="${user.getKey()}"></h1>
-            <span th:each="role : ${user.getValue()}">
-                <p th:text="${role.getRole()}"></p>
-            </span>
-        </div>
+    <div class="user-questions-admin-wrapper">
+        <h1 class="user-questions-admin-heading">Users Management</h1>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th></th>
+            </tr>
+            <tr th:each="user : ${users}" th:object="${user}">
+                <td th:text="*{username}">Some username</td>
+                <td th:text="*{role.get(0).role.name()}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem deleniti ab odit, magnam maxime perspiciatis repellat illo laudantium quo quae corrupti recusandae, fugiat similique reprehenderit laborum esse rem unde! Magnam!</td>
+                <td><form style="border: none" th:action="@{/admin-user/{id}(id = *{id})}">
+                    <button type="submit" class="user-profile-view-article">Change Role</button></form></td>
+            </tr>
+        </table>
     </div>
+
 </main>
 </body>
 <footer th:replace="fragments/commons :: footer"></footer>

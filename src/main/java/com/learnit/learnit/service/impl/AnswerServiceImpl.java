@@ -1,6 +1,7 @@
 package com.learnit.learnit.service.impl;
 
 import com.learnit.learnit.model.entity.AnswerEntity;
+import com.learnit.learnit.model.entity.QuestionEntity;
 import com.learnit.learnit.model.service.AnswerAddServiceModel;
 import com.learnit.learnit.repository.AnswerRepository;
 import com.learnit.learnit.repository.QuestionRepository;
@@ -22,9 +23,20 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public void add(AnswerAddServiceModel answerAddServiceModel) {
+    public void add(AnswerAddServiceModel answerAddServiceModel, QuestionEntity questionEntity) {
         AnswerEntity answerEntity = modelMapper.map(answerAddServiceModel, AnswerEntity.class);
 
+
+        answerEntity.setQuestionEntity(questionEntity);
         answerRepository.save(answerEntity);
+        questionEntity.setAnswerEntity(answerEntity);
+        questionRepository.save(questionEntity);
+    }
+
+    @Override
+    public AnswerEntity findById(Long id) {
+
+        return answerRepository.findById(id).
+                orElse(null);
     }
 }

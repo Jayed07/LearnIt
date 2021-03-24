@@ -7,6 +7,7 @@ import com.learnit.learnit.model.service.UserRegistrationServiceModel;
 import com.learnit.learnit.repository.UserRoleRepository;
 import com.learnit.learnit.repository.UserRepository;
 import com.learnit.learnit.service.UserService;
+import com.learnit.learnit.view.QuestionViewModel;
 import com.learnit.learnit.view.UserManagementViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collector;
@@ -62,7 +64,7 @@ public class UserServiceImpl implements UserService {
         UserEntity newUserEntity = modelMapper.map(serviceModel, UserEntity.class);
         newUserEntity.setPassword(passwordEncoder.encode(serviceModel.getPassword()));
 
-        UserRoleEntity userRoleEntity =  userRoleRepository.
+        UserRoleEntity userRoleEntity = userRoleRepository.
                 findByRole(UserRole.USER).orElseThrow(
                 () -> new IllegalStateException("USER role not found. Please seed the roles."));
 
@@ -87,14 +89,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, List<UserRoleEntity>> getAllUsersUsernamesAndRoles() {
+    public void changeUserRoleByUserId(Long id) {
+        UserRoleEntity userRoleEntity = userRoleRepository.findByRole(UserRole.USER).orElse(null);
+        UserRoleEntity adminUserRoleEntity = userRoleRepository.findByRole(UserRole.ADMIN).orElse(null);
 
-        return userRepository.findAll()
-                .stream()
-                .map(userEntity -> modelMapper.map(userEntity, UserManagementViewModel.class))
-                .collect(Collectors
-                        .toMap(UserManagementViewModel::getUsername,
-                                UserManagementViewModel::getUserRoleEntity));
+        UserEntity user = userRepository.findById(id).orElse(null);
+
+        assert user != null;
+        if(user.getRole().size() == 2) {
+            assert userRoleEntity != null;
+            user.setRole(List.of(userRoleEntity));
+        } else {
+            assert adminUserRoleEntity != null;
+            assert userRoleEntity != null;
+            user.setRole(List.of(adminUserRoleEntity, userRoleEntity));
+        }
+
+        userRepository.save(user);
     }
 
 }

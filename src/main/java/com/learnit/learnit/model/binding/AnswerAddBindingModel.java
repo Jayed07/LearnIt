@@ -7,10 +7,19 @@ import javax.validation.constraints.NotBlank;
 
 public class AnswerAddBindingModel {
 
+    private Long id;
     private String content;
     private QuestionEntity questionEntity;
 
     public AnswerAddBindingModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @NotBlank

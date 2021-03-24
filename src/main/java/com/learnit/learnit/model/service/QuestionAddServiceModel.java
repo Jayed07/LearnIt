@@ -1,9 +1,12 @@
 package com.learnit.learnit.model.service;
 
+import com.learnit.learnit.model.entity.AnswerEntity;
+
 public class QuestionAddServiceModel {
 
     private String author;
     private String content;
+    private AnswerEntity answerEntity;
 
     public QuestionAddServiceModel() {
     }
@@ -22,5 +25,13 @@ public class QuestionAddServiceModel {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public AnswerEntity getAnswerEntity() {
+        return answerEntity;
+    }
+
+    public void setAnswerEntity(AnswerEntity answerEntity) {
+        this.answerEntity = answerEntity;
     }
 }

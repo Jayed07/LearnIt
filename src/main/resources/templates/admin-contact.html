@@ -15,7 +15,7 @@
                 <th>Question</th>
                 <th></th>
             </tr>
-            <tr th:each="q : ${questions}" th:object="${q}">
+            <tr  th:each="q : ${questions}" th:object="${q}" th:if="${q.getAnswerEntity() == null}">
                 <td th:text="*{author}">Some username</td>
                 <td th:text="*{content}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem deleniti ab odit, magnam maxime perspiciatis repellat illo laudantium quo quae corrupti recusandae, fugiat similique reprehenderit laborum esse rem unde! Magnam!</td>
                 <td><a th:href="@{/admin-answer/{id}(id = *{id})}" class="btn-admin-answer" href="">Answer</a></td>

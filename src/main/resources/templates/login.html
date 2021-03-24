@@ -12,20 +12,24 @@
       <div class="section-wrapper">
         <div class="main-content main-content-login">
             <h2 class="login-heading">Login Form</h2>
+            <div th:if="${bad_credentials}" style="background: red; color: white" role="alert">
+                This username and password combination does not exist.
+            </div>
             <form th:action="@{/users/login}"
                   method="POST">
               <div class="container">
                 <label for="inputUsername"><b>Username</b></label>
                 <input placeholder="Enter Username" type="text"
                        name="username"
+                       required minlength="3"
                        th:value="${username}"
                        id="inputUsername">
 
                 <label for="inputPassword"><b>Password</b></label>
                 <input placeholder="Enter Password" type="password"
                        name="password"
+                       required minlength="3" maxlength="20"
                        id="inputPassword">
-
 
                   <button type="submit">Login</button>
 
