@@ -1,17 +1,37 @@
 @media all and (max-width: 600px) {
-    /* nav ul {
-        flex-direction: column;
-    }
+   .index-main {
+       position: relative;
+   }
 
     nav {
         flex-direction: column;
-        justify-content: center;
     }
 
-    .nav-container {
-        margin: 0 auto;
-        width: 100%;
+    .logo-heading h1 {
+        margin-bottom: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .input-comment-field {
+        width: 460px !important;
+    }
+
+    .question-user-profile-wrapper {
         display: flex;
-        justify-content: center;
-    } */
+        flex-direction: column;
+    }
+
+    .question-user {
+        border-bottom: 1px solid #007acc;
+        border-right: none;
+    }
+
+    .user-info {
+        max-width: 60%;
+    }
+
 }

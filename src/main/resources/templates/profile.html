@@ -12,12 +12,7 @@
     <div class="user-info">
       <img src="./img/default-avatar.png" alt="avatar" class="profile-picture">
       <h2 sec:authentication="name" class="profile-username">Username</h2>
-      <p class="user-description">Some user description - Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Quisquam ut iste perspiciatis, exercitationem, nostrum iusto eveniet sit assumenda et accusantium atque sunt
-        harum incidunt aliquam temporibus laboriosam quos eaque accusamus?</p>
-      <h3 class="interest-heading">Interests:</h3>
-      <p class="user-interests">Some user interests</p>
-      <button class="edit-profile">Edit profile</button>
+
     </div>
 
     <h1 th:if="${!articles.isEmpty()}">My Articles</h1>
@@ -31,7 +26,7 @@
         <div class="user-profile-buttons-wrapper">
           <form  th:action="@{/details/{id}(id = *{id})}">
             <button type="submit" class="user-profile-view-article">View</button></form>
-          <form> <button class="user-profile-edit-article">Edit</button></form>
+
           <form th:action="@{/delete/{id}(id = *{id})}"> <button class="user-profile-delete-article">Delete</button>
           </form>
         </div>

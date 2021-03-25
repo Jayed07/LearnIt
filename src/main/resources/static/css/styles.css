@@ -123,6 +123,7 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+
 }
 
 /* login styles */
@@ -222,6 +223,7 @@ button:hover {
   /* user profile styles */
   .user-profile-main {
     text-align: center;
+      margin-bottom: 120px;
   }
 
   .user-profile-main form .back-to-my-profile {
@@ -311,6 +313,10 @@ button:hover {
   }
 
   /* categories styles */
+
+.categories {
+    margin-bottom: 120px;
+}
   .flip-box {
     background-color: transparent;
     width: 300px;
@@ -483,7 +489,6 @@ textarea .input-comment-field {
     border: 1px solid #007acc;
     display: flex;
     margin: 10px auto;
-    margin-bottom: 150px;
 }
 
 .question-user, .answer-user {
@@ -502,7 +507,8 @@ textarea .input-comment-field {
     max-width: 70%;
     width: 100%;
     margin: 10px auto;
-    text-align: center
+    text-align: center;
+    margin-bottom: 120px;
 }
 table {
     width:100%;
@@ -560,4 +566,10 @@ th {
 .user-question-admin {
     max-width: 70%;
     margin: 0 auto;
+}
+
+.input-comment-field {
+    margin: 0px;
+    width: 965px;
+    height: 252px;
 }
