@@ -7,8 +7,8 @@ import com.learnit.learnit.model.service.UserRegistrationServiceModel;
 import com.learnit.learnit.repository.UserRoleRepository;
 import com.learnit.learnit.repository.UserRepository;
 import com.learnit.learnit.service.UserService;
-import com.learnit.learnit.view.QuestionViewModel;
-import com.learnit.learnit.view.UserManagementViewModel;
+import com.learnit.learnit.model.view.QuestionViewModel;
+import com.learnit.learnit.model.view.UserManagementViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -17,12 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {

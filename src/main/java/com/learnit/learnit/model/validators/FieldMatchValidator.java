@@ -1,4 +1,4 @@
-package com.learnit.learnit.validators;
+package com.learnit.learnit.model.validators;
 
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.PropertyAccessorFactory;

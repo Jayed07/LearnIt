@@ -2,7 +2,7 @@ package com.learnit.learnit.service;
 
 import com.learnit.learnit.model.entity.enums.CategoryName;
 import com.learnit.learnit.model.service.ArticleAddServiceModel;
-import com.learnit.learnit.view.ArticleViewModel;
+import com.learnit.learnit.model.view.ArticleViewModel;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.learnit.learnit.validators;
+package com.learnit.learnit.model.validators;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

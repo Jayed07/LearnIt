@@ -1,12 +1,10 @@
 package com.learnit.learnit.service.impl;
 
-import com.learnit.learnit.model.entity.AnswerEntity;
 import com.learnit.learnit.model.entity.QuestionEntity;
 import com.learnit.learnit.model.service.QuestionAddServiceModel;
-import com.learnit.learnit.repository.AnswerRepository;
 import com.learnit.learnit.repository.QuestionRepository;
 import com.learnit.learnit.service.QuestionService;
-import com.learnit.learnit.view.QuestionViewModel;
+import com.learnit.learnit.model.view.QuestionViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;

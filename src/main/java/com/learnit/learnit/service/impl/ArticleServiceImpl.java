@@ -6,7 +6,7 @@ import com.learnit.learnit.model.service.ArticleAddServiceModel;
 import com.learnit.learnit.repository.ArticleRepository;
 import com.learnit.learnit.service.ArticleService;
 import com.learnit.learnit.service.CategoryService;
-import com.learnit.learnit.view.ArticleViewModel;
+import com.learnit.learnit.model.view.ArticleViewModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;

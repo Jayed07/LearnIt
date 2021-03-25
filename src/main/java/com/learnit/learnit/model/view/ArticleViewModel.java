@@ -1,4 +1,4 @@
-package com.learnit.learnit.view;
+package com.learnit.learnit.model.view;
 
 import com.learnit.learnit.model.entity.CategoryEntity;
 

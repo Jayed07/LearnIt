@@ -1,7 +1,7 @@
 package com.learnit.learnit.model.binding;
 
 
-import com.learnit.learnit.validators.FieldMatch;
+import com.learnit.learnit.model.validators.FieldMatch;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

@@ -1,12 +1,7 @@
 package com.learnit.learnit.service;
 
-import com.learnit.learnit.model.entity.UserEntity;
-import com.learnit.learnit.model.entity.UserRoleEntity;
 import com.learnit.learnit.model.service.UserRegistrationServiceModel;
-import com.learnit.learnit.view.UserManagementViewModel;
-
-import java.util.List;
-import java.util.Map;
+import com.learnit.learnit.model.view.UserManagementViewModel;
 
 public interface UserService {
 
