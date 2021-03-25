@@ -43,8 +43,8 @@ private final PasswordEncoder passwordEncoder;
           requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
           // allow access to index, user login and registration to anyone
           antMatchers("/", "/users/login", "/users/register").permitAll().
-            antMatchers("/admin", "/admin-article", "/admin-contact", "/admin-user").hasRole("ADMIN").
-            antMatchers("/ask-the-admin", "/add-article", "/categories", "/my-profile").hasRole("USER").
+            antMatchers("/admin", "/admin-contact", "/admin-user").hasRole("ADMIN").
+            antMatchers("/home", "/ask-the-admin", "/add-article", "/categories/**", "/details/**", "/my-profile").hasRole("USER").
           // protect all other pages
 //          antMatchers("/**").authenticated().
         and().
