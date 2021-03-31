@@ -4,6 +4,7 @@ import com.learnit.learnit.model.entity.QuestionEntity;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class AnswerAddBindingModel {
 
@@ -22,7 +23,8 @@ public class AnswerAddBindingModel {
         this.id = id;
     }
 
-    @NotBlank
+    @NotBlank(message = "Cannot be empty.")
+    @Size(min = 5, max = 150, message = "Answer must be between 5 and 150 characters long.")
     @Column(name = "content", columnDefinition = "TEXT")
     public String getContent() {
         return content;

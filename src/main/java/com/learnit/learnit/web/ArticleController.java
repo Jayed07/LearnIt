@@ -53,7 +53,7 @@ public class ArticleController {
         articleService
                 .add(modelMapper.map(articleAddBindingModel, ArticleAddServiceModel.class));
 
-        return "redirect:/";
+        return "redirect:/home";
     }
 
 

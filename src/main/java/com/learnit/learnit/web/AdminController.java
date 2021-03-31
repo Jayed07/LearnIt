@@ -4,11 +4,10 @@ import com.learnit.learnit.model.binding.AnswerAddBindingModel;
 import com.learnit.learnit.model.service.AnswerAddServiceModel;
 import com.learnit.learnit.repository.QuestionRepository;
 import com.learnit.learnit.repository.UserRepository;
-import com.learnit.learnit.repository.UserRoleRepository;
 import com.learnit.learnit.service.AnswerService;
 import com.learnit.learnit.service.QuestionService;
-import com.learnit.learnit.service.UserService;
 import com.learnit.learnit.model.view.QuestionViewModel;
+import com.learnit.learnit.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,16 +28,14 @@ public class AdminController {
     private final AnswerService answerService;
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
-    private final UserRoleRepository userRoleRepository;
 
-    public AdminController(UserService userService, QuestionRepository questionRepository, QuestionService questionService, AnswerService answerService, ModelMapper modelMapper, UserRepository userRepository, UserRoleRepository userRoleRepository) {
+    public AdminController(UserService userService, QuestionRepository questionRepository, QuestionService questionService, AnswerService answerService, ModelMapper modelMapper, UserRepository userRepository) {
         this.userService = userService;
         this.questionRepository = questionRepository;
         this.questionService = questionService;
         this.answerService = answerService;
         this.modelMapper = modelMapper;
         this.userRepository = userRepository;
-        this.userRoleRepository = userRoleRepository;
     }
 
     @GetMapping("/admin")

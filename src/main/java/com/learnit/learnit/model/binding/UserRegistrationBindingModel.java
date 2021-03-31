@@ -13,18 +13,17 @@ import javax.validation.constraints.Size;
 )
 public class UserRegistrationBindingModel {
 
-  @NotEmpty(message = "Username cannot be empty.")
-  @Size(min = 3, message = "Username must be minimum 3 characters long.")
+
   private String username;
-  @NotEmpty(message = "Email cannot be empty.")
-  @Email(message = "Invalid email.")
   private String email;
-  @NotEmpty(message = "Password cannot be empty.")
-  @Size(min = 5, max = 20, message = "Password must be between 3 and 20 characters long.")
   private String password;
-  @NotEmpty(message = "Password cannot be empty.")
   private String confirmPassword;
 
+  public UserRegistrationBindingModel() {
+  }
+
+  @NotEmpty(message = "Username cannot be empty.")
+  @Size(min = 3, message = "Username must be minimum 3 characters long.")
   public String getUsername() {
     return username;
   }
@@ -34,6 +33,8 @@ public class UserRegistrationBindingModel {
     return this;
   }
 
+  @NotEmpty(message = "Email cannot be empty.")
+  @Email(message = "Invalid email.")
   public String getEmail() {
     return email;
   }
@@ -43,6 +44,8 @@ public class UserRegistrationBindingModel {
     return this;
   }
 
+  @NotEmpty(message = "Password cannot be empty.")
+  @Size(min = 5, max = 20, message = "Password must be between 3 and 20 characters long.")
   public String getPassword() {
     return password;
   }
@@ -52,6 +55,7 @@ public class UserRegistrationBindingModel {
     return this;
   }
 
+  @NotEmpty(message = "Password cannot be empty.")
   public String getConfirmPassword() {
     return confirmPassword;
   }

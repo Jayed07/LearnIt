@@ -17,7 +17,7 @@
 <header th:fragment="navigation">
     <div class="nav-container">
         <nav class="section-wrapper">
-            <a class="logo-heading" href="/"><h1 >LearnIt</h1></a>
+            <a class="logo-heading" href="/home"><h1 >LearnIt</h1></a>
             <ul>
                 <li><a sec:authorize="!isAuthenticated()"
                        th:href="@{/users/login}">Login</a></li>
@@ -39,7 +39,7 @@
 <header th:fragment="admin-navigation">
     <div class="nav-container">
         <nav class="section-wrapper">
-            <a class="logo-heading" href="/"><h1 >LearnIt</h1></a>
+            <a class="logo-heading" href="/home"><h1 >LearnIt</h1></a>
             <ul>
                 <li sec:authorize="isAuthenticated()"><a href="/admin">Dashboard</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="/admin-contact">Users Questions</a></li>

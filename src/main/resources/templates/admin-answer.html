@@ -12,7 +12,10 @@
     <div class="answer-section">
         <form th:action="@{/admin-answer/{id} (id = ${question.id})}" th:object="${answerAddBindingModel}" method="POST">
 
-            <textarea th:field="*{content}" name="text" class="input-comment-field" style="margin: 0px; width: 965px; height: 252px;"></textarea>
+            <textarea th:errorclass="field-error" th:field="*{content}" name="text" class="input-comment-field" style="margin: 0px; width: 965px; height: 252px;"></textarea>
+            <br/>
+            <small style="background: white; font-weight: bold" th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="field-error-text">Content error</small>
+            <br/>
             <button  class="comment-submit-button" type="submit" style="max-width: 160px;
                     border-radius: 20px;
                     margin: 15px;">Answer</button>

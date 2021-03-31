@@ -284,6 +284,15 @@ button:hover {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     object-fit: cover;
+    min-height: 250px;
+  }
+
+  .user-profile-article-content {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0 auto;
   }
 
   .user-profile-buttons-wrapper {

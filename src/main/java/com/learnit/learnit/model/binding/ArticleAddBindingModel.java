@@ -19,8 +19,8 @@ public class ArticleAddBindingModel {
     public ArticleAddBindingModel() {
     }
 
-    @NotBlank
-    @Size(min = 3, max = 30)
+    @NotBlank(message = "Cannot be empty.")
+    @Size(min = 3, max = 30, message = "Article name must be between 3 and 30 characters long.")
     public String getName() {
         return name;
     }
@@ -29,8 +29,9 @@ public class ArticleAddBindingModel {
         this.name = name;
     }
 
-    @NotBlank
+    @NotBlank(message = "Cannot be empty.")
     @Column(name = "content", columnDefinition = "TEXT")
+    @Size(min = 10, message = "Content of article must be at least 10 characters long.")
     public String getContent() {
         return content;
     }
@@ -39,7 +40,7 @@ public class ArticleAddBindingModel {
         this.content = content;
     }
 
-    @NotBlank
+    @NotBlank(message = "Cannot be empty.")
     public String getImageUrl() {
         return imageUrl;
     }
